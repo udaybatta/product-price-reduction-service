@@ -20,7 +20,7 @@ import com.example.model.ProductsWrapper;
  * @author batta
  *
  */
-@Ignore
+@Ignore(value = "John Lewis URL is not working, So skipping the below test for time being.")
 @RunWith(MockitoJUnitRunner.class)
 public class ProductRepositoryTest {
 	
