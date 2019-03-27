@@ -5,6 +5,7 @@ import java.util.StringJoiner;
 
 import com.example.constant.CurrencyEnum;
 import com.example.constant.PriceLabelEnum;
+import com.example.constant.ProductConstants;
 
 /**
  * Provides utility methods
@@ -12,7 +13,7 @@ import com.example.constant.PriceLabelEnum;
  * @author batta
  *
  */
-public class ProductUtils {
+public final class ProductUtils {
 	
 	private static final HashMap<String, String> RGB_COLOR_CODES = new HashMap<>();
 	
@@ -31,6 +32,10 @@ public class ProductUtils {
 		RGB_COLOR_CODES.putIfAbsent("Navy", "000080");
 	}
 	
+	/** Hide the constructor */
+	private ProductUtils() {}
+	
+	
 	/**
 	 * Formats price 
 	 * 
@@ -41,7 +46,7 @@ public class ProductUtils {
 	public static String getPriceFormat(String value, String currency) {
 		return CurrencyEnum.valueOf(currency).getCurrencySymbol() +  
 				String.valueOf(
-						Double.valueOf(value) < 10 ? 
+						Double.valueOf(value) < ProductConstants.PRICE_CHECK ? 
 								Double.valueOf(value) : 
 									Double.valueOf(value).intValue()
 						);
@@ -122,5 +127,5 @@ public class ProductUtils {
 	public static String lookupRgbColorCode(String basicColor) {
 		return RGB_COLOR_CODES.getOrDefault(basicColor, "000000");
 	}
-
+	
 }

@@ -32,6 +32,14 @@ public class Product implements Serializable {
 	
 	public Product() {
 	}
+	
+	public Product(String productId, String title, List<ColorSwatch> colorSwatches, 
+			Price price) {
+		this.productId = productId;
+		this.title = title;
+		this.colorSwatches = colorSwatches;
+		this.price = price;
+	}
 
 	public String getProductId() {
 		return productId;

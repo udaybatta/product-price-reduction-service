@@ -27,6 +27,14 @@ public class Price implements Serializable {
 	
 	public Price() {
 	}
+	
+	public Price(String was, String then1, String then2, Now now, String currency) {
+		this.was = was;
+		this.then1 = then1;
+		this.then2 = then2;
+		this.now = now;
+		this.currency = currency;
+	}
 
 	public String getWas() {
 		return Optional.ofNullable(was)

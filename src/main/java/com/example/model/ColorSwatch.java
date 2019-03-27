@@ -25,6 +25,12 @@ public class ColorSwatch implements Serializable {
 	
 	public ColorSwatch() {
 	}
+	
+	public ColorSwatch(String color, String basicColor, String skuId) {
+		this.color = color;
+		this.rgbColor = basicColor;
+		this.skuId = skuId;
+	}
 
 	public String getColor() {
 		return color;
