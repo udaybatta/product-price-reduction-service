@@ -29,6 +29,7 @@ public class Price implements Serializable {
 	}
 	
 	public Price(String was, String then1, String then2, Now now, String currency) {
+		super();
 		this.was = was;
 		this.then1 = then1;
 		this.then2 = then2;

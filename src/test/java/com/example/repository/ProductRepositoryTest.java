@@ -5,12 +5,12 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import com.example.model.ProductsWrapper;
@@ -20,7 +20,6 @@ import com.example.model.ProductsWrapper;
  * @author batta
  *
  */
-@Ignore(value = "John Lewis URL is not working, So skipping the below test for time being.")
 @RunWith(MockitoJUnitRunner.class)
 public class ProductRepositoryTest {
 	
@@ -42,6 +41,11 @@ public class ProductRepositoryTest {
 	public void testGetProductsByCategory() {
 		ProductsWrapper productWrapper = productRepository.getProductsByCategory("600001506");
 		assertNotNull(productWrapper);
+	}
+	
+	@Test(expected = HttpClientErrorException.class)
+	public void testGetProductsByCategory_Not_Found() {
+		productRepository.getProductsByCategory("123");
 	}
 
 }

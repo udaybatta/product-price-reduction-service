@@ -22,6 +22,7 @@ public class Now implements Serializable {
 	}
 	
 	public Now(String from, String to) {
+		super();
 		this.from = from;
 		this.to = to;
 	}
